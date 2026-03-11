@@ -1,8 +1,13 @@
-# CV Parser — Phase 1, 2 & 3
+# CVgenerator
+
+Generates role-tailored CVs based on initial CV + role description.
+
+---
 
 Phase 1: Parse DOCX CVs into a strict JSON schema.  
 Phase 2: Deterministic tailoring, validation guardrails, and /review page.  
-Phase 3: Diff view, accept/reject controls, per-section change management.
+Phase 3: Diff view, accept/reject controls, per-section change management.  
+Phase 4: DOCX export of the current (edited) CV.
 
 No auth. No database. Projects are always sorted by year (newest first).  
 **AI (optional):** Profile text can be rewritten to match the role. Set `ANTHROPIC_API_KEY` (Claude) or `OPENAI_API_KEY` (OpenAI); Claude has priority if both are set.
@@ -34,7 +39,7 @@ Open [http://localhost:3000](http://localhost:3000).
    - **Skills**: Accept/Reject text; Accept order / Reject order; Reset.
    - Education & Certifications: locked (read-only).
 7. **Persistence**: Edits and accept/reject state persist in sessionStorage. Refresh to verify.
-8. **Download DOCX**: Click → "Coming next (Phase 4)" toast.
+8. **Download DOCX**: Click to download the current CV as a .docx file.
 
 ## Local Dev Fixture
 
@@ -85,15 +90,3 @@ Missing sections produce a structured error.
 npm run test
 ```
 
----
-
-## Phase 4: Template-Locked DOCX Export — 8 TODOs
-
-- [ ] Choose DOCX template (Xomnia standard format).
-- [ ] Map StructuredCV fields to template placeholders.
-- [ ] Preserve template styling (fonts, headings, layout).
-- [ ] Export current (edited) CV to DOCX.
-- [ ] Handle locked sections (Education, Certifications) as read-only in export.
-- [ ] Add filename option (e.g. `{name}_tailored.docx`).
-- [ ] Validate export matches StructuredCV schema.
-- [ ] Replace "Coming next" placeholder with real Download DOCX.
